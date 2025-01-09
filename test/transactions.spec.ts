@@ -1,9 +1,8 @@
 // Description: Example test file.
-import { test, beforeAll, afterAll, describe, it, expect, beforeEach } from 'vitest'
+import { beforeAll, afterAll, describe, it, expect, beforeEach } from 'vitest'
 import { app } from '../src/app'
 import { execSync } from 'node:child_process'
 import request from 'supertest'
-
 
 describe('Transaction routes', () => {
   beforeAll(async () => {
@@ -26,7 +25,8 @@ describe('Transaction routes', () => {
         title: `New transaction`,
         amount: 5000,
         type: 'credit',
-      }).expect(201)
+      })
+      .expect(201)
   })
 
   it('Should be able to list all transactions', async () => {
@@ -53,7 +53,3 @@ describe('Transaction routes', () => {
     ])
   })
 })
-
-
-
-
